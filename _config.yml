@@ -7,12 +7,12 @@
 
 # Site settings
 title: PP's Games
-email: 
+email: fiveeye1024@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  PP's Games  
+  To be continued  
 baseurl: "/WebGames" # the subpath of your site, e.g. /blog
 url: "http://pseudopower.github.io" # the base hostname & protocol for your site
-github_username:
+github_username: fiveeye
 
 # Build settings
 markdown: kramdown
