@@ -5,4 +5,4 @@ permalink: /contents/
 categories: Tab
 ---
 
-# [Hocus]({{ site.baseurl }}/hocus)
+# [Hocus]({{ site.baseurl }}/games/hocus)
