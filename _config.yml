@@ -10,7 +10,7 @@ title: Pseudo Games
 email:
 description: > # this means to ignore newlines until "baseurl:"
   To be continued  
-baseurl: "/WebGames" # the subpath of your site, e.g. /blog
+baseurl: "/PseudoGames" # the subpath of your site, e.g. /blog
 url: "http://pseudopower.github.io" # the base hostname & protocol for your site
 github_username: PseudoPower
 
