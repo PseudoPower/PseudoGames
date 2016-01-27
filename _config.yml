@@ -6,13 +6,13 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: PP's Games
-email: fiveeye1024@gmail.com
+title: Pseudo Game
+email:
 description: > # this means to ignore newlines until "baseurl:"
   To be continued  
 baseurl: "/WebGames" # the subpath of your site, e.g. /blog
 url: "http://pseudopower.github.io" # the base hostname & protocol for your site
-github_username: fiveeye
+github_username: PseudoPower
 
 # Build settings
 markdown: kramdown

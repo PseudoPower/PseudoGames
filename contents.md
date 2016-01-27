@@ -2,6 +2,7 @@
 layout: page
 title: Contents
 permalink: /contents/
+categories: Tab
 ---
 
-[Hocus]({{ site.url }}{{ site.baseurl }}/hocus)
+# [Hocus]({{ site.baseurl }}/hocus)
