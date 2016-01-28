@@ -4,7 +4,6 @@ title: Hocus Canvas
 date: 2016-01-27 19:43:00
 categories: Game
 ---
-
 <canvas id="canvas" width="800" height="800">
   Your browser does not support the HTML5 canvas tag.
 </canvas>
@@ -80,29 +79,41 @@ function drawCube(x, y, h) {
   if(h[0] || h[5]) drawLine(x, y, ps[0], ps[1], "#FFFFFF");
   if(h[1] || h[2]) drawLine(x, y, ps[4], ps[5], "#FFFFFF");
   if(h[3] || h[4]) drawLine(x, y, ps[8], ps[9], "#FFFFFF");
-  
+
 }
 
-drawCube(-4, -4, [1,1,1,1,0,0]);
+window.onresize = function () {
+  ctx.canvas.width  = Math.min(800, window.innerWidth);
+  ctx.canvas.height = Math.min(600, window.innerHeight);
+  draw();
+};
 
-drawCube(-3, -4, [1,1,1,1,0,0]);
-drawCube(-2, -4, [1,1,1,1,0,0]);
-drawCube(-1, -4, [1,1,1,1,0,0]);
+function draw() {
 
-drawCube(0, -4, [1,1,0,0,1,1]);
+  drawCube(-4, -4, [1,1,1,1,0,0]);
 
-drawCube(0, -3, [1,1,0,0,1,1]);
-drawCube(0, -2, [1,1,0,0,1,1]);
-drawCube(0, -1, [1,1,0,0,1,1]);
+  drawCube(-3, -4, [1,1,1,1,0,0]);
+  drawCube(-2, -4, [1,1,1,1,0,0]);
+  drawCube(-1, -4, [1,1,1,1,0,0]);
 
-drawCube(0, 0, [0,0,1,1,1,1]);
+  drawCube(0, -4, [1,1,0,0,1,1]);
 
-drawCube(-1, -1, [0,0,1,1,1,1]);
-drawCube(-2, -2, [0,0,1,1,1,1]);
-drawCube(-3, -3, [0,0,1,1,1,0]);
+  drawCube(0, -3, [1,1,0,0,1,1]);
+  drawCube(0, -2, [1,1,0,0,1,1]);
+  drawCube(0, -1, [1,1,0,0,1,1]);
+
+  drawCube(0, 0, [0,0,1,1,1,1]);
+
+  drawCube(-1, -1, [0,0,1,1,1,1]);
+  drawCube(-2, -2, [0,0,1,1,1,1]);
+  drawCube(-3, -3, [0,0,1,1,1,0]);
+
+  //drawCube(0, 0, [1,1,1,1,1,1]);
+}
+
+draw();
 
 
-//drawCube(0, 0, [1,1,1,1,1,1]);
 
 
 
