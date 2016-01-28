@@ -5,7 +5,7 @@ date: 2016-01-27 19:43:00
 categories: Game
 ---
 
-<canvas id="canvas" width="800" height="600">
+<canvas id="canvas" width="800" height="800">
   Your browser does not support the HTML5 canvas tag.
 </canvas>
 
@@ -23,8 +23,16 @@ function drawTriangle(x0, y0, x1, y1, x2, y2, color) {
   ctx.fill();
 }
 
+function drawLine(x0, y0, x1, y1, color) {
+  ctx.beginPath();
+  ctx.moveTo(x0, y0);
+  ctx.lineTo(x1, y1);
+  ctx.strokeStyle = color
+  ctx.stroke();
+}
+
 function drawCube(x, y, h) {
-  var len = 30;
+  var len = 50;
   z0 = (y - x);
   z1 = (x + y);
   x = canvas.width / 2 + z0 * sqrt3 * len;
@@ -41,25 +49,37 @@ function drawCube(x, y, h) {
   if(h[3]) drawTriangle(x, y, ps[6], ps[7], ps[8], ps[9], "#AFAFAF");
   if(h[4]) drawTriangle(x, y, ps[8], ps[9], ps[10], ps[11], "#5F5F5F");
   if(h[5]) drawTriangle(x, y, ps[10], ps[11], ps[0], ps[1], "#5F5F5F");
+  
+  for(i = 0; i < 6; i++) {
+    if(h[i]) {
+      drawLine(ps[i*2], ps[i*2+1], ps[(i*2+2)%12], ps[(i*2+3)%12], "#000000");
+    }
+  }
+  
+  if(h[0] || h[5]) drawLine(x, y, ps[0], ps[1], "#FFFFFF");
+  if(h[1] || h[2]) drawLine(x, y, ps[4], ps[5], "#FFFFFF");
+  if(h[3] || h[4]) drawLine(x, y, ps[8], ps[9], "#FFFFFF");
+  
 }
 
-drawCube(-3, -4, [1,1,1,1,1,1]);
-drawCube(-2, -4, [1,1,1,1,1,1]);
-drawCube(-1, -4, [1,1,1,1,1,1]);
+drawCube(-4, -4, [1,1,1,1,0,0]);
 
-drawCube(0, -4, [1,1,1,1,1,1]);
+drawCube(-3, -4, [1,1,1,1,0,0]);
+drawCube(-2, -4, [1,1,1,1,0,0]);
+drawCube(-1, -4, [1,1,1,1,0,0]);
 
-drawCube(0, -3, [1,1,1,1,1,1]);
-drawCube(0, -2, [1,1,1,1,1,1]);
-drawCube(0, -1, [1,1,1,1,1,1]);
+drawCube(0, -4, [1,1,0,0,1,1]);
 
-drawCube(0, 0, [1,1,1,1,1,1]);
+drawCube(0, -3, [1,1,0,0,1,1]);
+drawCube(0, -2, [1,1,0,0,1,1]);
+drawCube(0, -1, [1,1,0,0,1,1]);
 
-drawCube(-1, -1, [1,1,1,1,1,1]);
-drawCube(-2, -2, [1,1,1,1,1,1]);
+drawCube(0, 0, [0,0,1,1,1,1]);
+
+drawCube(-1, -1, [0,0,1,1,1,1]);
+drawCube(-2, -2, [0,0,1,1,1,1]);
 drawCube(-3, -3, [0,0,1,1,1,0]);
 
-drawCube(-4, -4, [1,1,1,1,0,0]);
 
 
 
