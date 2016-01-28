@@ -1,0 +1,67 @@
+---
+layout: default
+title: Hocus Canvas
+date: 2016-01-27 19:43:00
+categories: Game
+---
+
+<canvas id="canvas" width="800" height="600">
+  Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+var sqrt3 = Math.sqrt(3.0) / 2;
+function drawTriangle(x0, y0, x1, y1, x2, y2, color) {
+  ctx.beginPath();
+  ctx.moveTo(x0, y0);
+  ctx.lineTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.fillStyle = color;
+  ctx.fill();
+}
+
+function drawCube(x, y, h) {
+  var len = 30;
+  z0 = (y - x);
+  z1 = (x + y);
+  x = canvas.width / 2 + z0 * sqrt3 * len;
+  y = canvas.height / 2 + z1 * len / 2;
+  var ps = [x - sqrt3 * len, y - len / 2,
+            x, y - len,
+            x + sqrt3 * len, y - len / 2,
+            x + sqrt3 * len, y + len / 2,
+            x, y + len,
+            x - sqrt3 * len, y + len / 2];
+  if(h[0]) drawTriangle(x, y, ps[0], ps[1], ps[2], ps[3], "#EFEFEF");
+  if(h[1]) drawTriangle(x, y, ps[2], ps[3], ps[4], ps[5], "#EFEFEF");
+  if(h[2]) drawTriangle(x, y, ps[4], ps[5], ps[6], ps[7], "#AFAFAF");
+  if(h[3]) drawTriangle(x, y, ps[6], ps[7], ps[8], ps[9], "#AFAFAF");
+  if(h[4]) drawTriangle(x, y, ps[8], ps[9], ps[10], ps[11], "#4F4F4F");
+  if(h[5]) drawTriangle(x, y, ps[10], ps[11], ps[0], ps[1], "#4F4F4F");
+}
+
+drawCube(-3, -4, [1,1,1,1,1,1]);
+drawCube(-2, -4, [1,1,1,1,1,1]);
+drawCube(-1, -4, [1,1,1,1,1,1]);
+
+drawCube(0, -4, [1,1,1,1,1,1]);
+
+drawCube(0, -3, [1,1,1,1,1,1]);
+drawCube(0, -2, [1,1,1,1,1,1]);
+drawCube(0, -1, [1,1,1,1,1,1]);
+
+drawCube(0, 0, [1,1,1,1,1,1]);
+
+drawCube(-1, -1, [1,1,1,1,1,1]);
+drawCube(-2, -2, [1,1,1,1,1,1]);
+drawCube(-3, -3, [0,0,1,1,1,0]);
+
+drawCube(-4, -4, [1,1,1,1,0,0]);
+
+
+
+
+</script>
